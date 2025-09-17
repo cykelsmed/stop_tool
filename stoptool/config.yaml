@@ -1,0 +1,21 @@
+# Placeholder configuration. Step 2 will load real values.
+price_source: yfinance
+report:
+  dir: reports
+  formats: [csv, md]
+defaults:
+  rule:
+    type: ma
+    use: [50, 150]
+    buffer_pct: 1.0
+    min_atr_mult: 1.0
+  fallback:
+    if_only_50:
+      type: ma
+      use: [50]
+      buffer_pct: 1.0
+      min_atr_mult: 1.0
+    if_no_ma:
+      type: percent
+      p: 12
+overrides: {}
